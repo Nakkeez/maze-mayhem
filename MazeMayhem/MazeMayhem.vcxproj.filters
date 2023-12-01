@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{353be782-56c1-4a4e-8779-0c6e113e312d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\include">
+      <UniqueIdentifier>{f26d3d0b-c82f-4a5e-9c1e-5e79a5db404c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\src">
+      <UniqueIdentifier>{f07845c9-ac8d-485a-949d-e730e694fd3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Assets">
+      <UniqueIdentifier>{5ff65445-2904-4e8b-826d-f76e12e7e71a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{396973c5-98a4-4377-98cf-dfef156b2c9e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MazeMayhem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core-engine\core\src\CameraNode.cpp">
+      <Filter>Core\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core-engine\core\src\Geometry.cpp">
+      <Filter>Core\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core-engine\core\src\GeometryNode.cpp">
+      <Filter>Core\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core-engine\core\src\IApplication_win32.cpp">
+      <Filter>Core\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core-engine\core\src\Material.cpp">
+      <Filter>Core\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core-engine\core\src\Node.cpp">
+      <Filter>Core\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core-engine\core\src\OpenGLRenderer.cpp">
+      <Filter>Core\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core-engine\core\src\Timer.cpp">
+      <Filter>Core\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\MazeMayhem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\CameraNode.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\Geometry.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\GeometryNode.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\IApplication.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\IRenderer.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\Material.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\Node.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\OpenGLRenderer.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\stb_image.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\include\Timer.h">
+      <Filter>Core\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core-engine\core\src\tiny_obj_loader.h">
+      <Filter>Core\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\earth.jpg">
+      <Filter>Resource Files\Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\phongshader.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="shaders\phongshader.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
