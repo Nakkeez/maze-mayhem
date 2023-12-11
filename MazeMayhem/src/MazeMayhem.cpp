@@ -67,10 +67,10 @@ bool MazeMayhem::OnCreate()
 
     // Create sphere geometry object
     auto sphere = std::make_shared<PhysicsNode>(m_pSphere, m_pMaterial);
-    sphere->SetPos(0.0f, 20.0f, 0.0f);
+    sphere->SetPos(0.0f, 10.0f, 0.0f);
     sphere->SetRotationAxis(glm::vec3(0.0f, 1.0f, 0.0f));
     sphere->SetRotationSpeed(glm::linearRand(-1.0f, 1.0f));
-
+    sphere->SetName("sphere");
     sphere->SetRadius(size * 0.5f);
 
     sphere->SetPhysics(m_pPhysics, 1.0f, PhysicsNode::CollisionShape::Sphere);
@@ -105,6 +105,36 @@ void MazeMayhem::OnUpdate(float frametime)
     {
         m_pPhysics->Update(frametime);
     }
+
+    auto camera = m_pSceneRoot->FindNode("camera");
+    glm::vec3 velocity(camera->GetVelocity());
+
+    if (IsKeyDown(KEY_LEFT))
+    {
+        velocity.x -= frametime * 10.0f;
+    }
+    if (IsKeyDown(KEY_RIGHT))
+    {
+        velocity.x += frametime * 10.0f;
+    }
+    if (IsKeyDown(KEY_UP))
+    {
+        velocity.z -= frametime * 10.0f;
+    }
+    if (IsKeyDown(KEY_DOWN))
+    {
+        velocity.z += frametime * 10.0f;
+    }
+
+    float len = glm::length(velocity);
+    if (len)
+    {
+        len -= frametime * 1.5f;
+        velocity = glm::normalize(velocity) * len;
+    }
+
+    camera->SetVelocity(velocity);
+
 }
 
 void MazeMayhem::OnDraw(IRenderer& renderer)
