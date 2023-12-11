@@ -145,6 +145,8 @@
     <ClCompile Include="..\core-engine\core\src\Timer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MazeMayhem.cpp" />
+    <ClCompile Include="src\Physics.cpp" />
+    <ClCompile Include="src\PhysicsNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\core-engine\core\include\CameraNode.h" />
@@ -159,6 +161,8 @@
     <ClInclude Include="..\core-engine\core\include\Timer.h" />
     <ClInclude Include="..\core-engine\core\src\tiny_obj_loader.h" />
     <ClInclude Include="include\MazeMayhem.h" />
+    <ClInclude Include="include\Physics.h" />
+    <ClInclude Include="include\PhysicsNode.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\earth.jpg" />

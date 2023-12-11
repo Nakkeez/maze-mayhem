@@ -6,6 +6,9 @@
 #include "../../core-engine/core/include/GeometryNode.h"
 #include "../../core-engine/core/include/CameraNode.h"
 
+// Bullet Physics Engine
+#include "Physics.h"
+
 
 class MazeMayhem : public IApplication
 {
@@ -56,7 +59,10 @@ private:
 	GLuint						m_uTexture;
 
 	std::shared_ptr<Geometry>	m_pGeometry;
+	std::shared_ptr<Geometry>	m_pSphere;
 	std::shared_ptr<Material>	m_pMaterial;
 
 	std::unique_ptr<Node>		m_pSceneRoot;
+
+	std::shared_ptr<Physics>	m_pPhysics;
 };
