@@ -163,6 +163,23 @@ void MazeMayhem::OnDraw(IRenderer& renderer)
     }
 }
 
+void MazeMayhem::OnScreenSizeChanged(uint32_t widthPixels, uint32_t heightPixels)
+{
+    // Check in case the function gets called before application is initialized
+    if (m_pSceneRoot)
+    {
+        auto* camera = static_cast<CameraNode*>(m_pSceneRoot->FindNode("camera"));
+        if (camera)
+        {
+            // Update aspect ratio
+            auto params = camera->GetProjectionParameters();
+            params.y = GetAspect();
+            camera->SetProjectionParameters(params);
+        }
+    }
+
+}
+
 bool MazeMayhem::OnKeyDown(uint32_t keyCode)
 {
     if (keyCode == KEY_ESC)

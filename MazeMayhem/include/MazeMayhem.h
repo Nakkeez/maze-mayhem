@@ -38,6 +38,13 @@ public:
 	 */
 	virtual void OnDraw(IRenderer& renderer) override;
 
+protected:
+	/**
+	* Event when screen size changes
+	* @param widthPixels, heightPixels new pixel size of the screen
+	*/
+	void OnScreenSizeChanged(uint32_t widthPixels, uint32_t heightPixels) override;
+
 	/**
 	 * Key down event
 	 * @param keyCode key code
