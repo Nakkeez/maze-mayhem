@@ -147,6 +147,7 @@
     <ClCompile Include="src\MazeMayhem.cpp" />
     <ClCompile Include="src\Physics.cpp" />
     <ClCompile Include="src\PhysicsNode.cpp" />
+    <ClCompile Include="src\PlayerNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\core-engine\core\include\CameraNode.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="include\MazeMayhem.h" />
     <ClInclude Include="include\Physics.h" />
     <ClInclude Include="include\PhysicsNode.h" />
+    <ClInclude Include="include\PlayerNode.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\earth.jpg" />

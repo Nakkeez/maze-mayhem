@@ -33,7 +33,7 @@ bool MazeMayhem::OnCreate()
 	m_pGeometry = std::make_shared<Geometry>();
     m_pGeometry->GenQuad(glm::vec2(40.0f, 30.0f));
 
-    constexpr float size = 1.0f;
+    constexpr float size = 2.0f;
     m_pSphere = std::make_shared<Geometry>();
     m_pSphere->GenSphere(
         glm::vec3(size * 0.5f),
@@ -48,13 +48,14 @@ bool MazeMayhem::OnCreate()
 	m_pSceneRoot = std::make_unique<Node>();
 
 	// Create the camera
-	auto camera = std::make_shared<CameraNode>();
-	camera->SetName("camera");
-	camera->SetProjectionParameters(0.61f, GetAspect(), 1.0f, 500.0f);
-	camera->LookAt(glm::vec3(0.0f, 20.0f, 40.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+	auto player = std::make_shared<PlayerNode>();
+    player->SetPlayerState(PlayerNode::PlayerState::STATIONARY);
+    player->SetName("player");
+    player->SetProjectionParameters(0.61f, GetAspect(), 1.0f, 500.0f);
+    player->LookAt(glm::vec3(0.0f, 2.0f, 20.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 
 	// Add camera node as root to the SceneGraph
-	m_pSceneRoot->AddNode(camera);
+	m_pSceneRoot->AddNode(player);
 
     // Add static collision bodies
     m_pPhysics->AddStaticCollisionPlane(glm::vec4(0.0f, 1.0f, 0.0f, 0.0f));
@@ -106,8 +107,8 @@ void MazeMayhem::OnUpdate(float frametime)
         m_pPhysics->Update(frametime);
     }
 
-    auto camera = m_pSceneRoot->FindNode("camera");
-    glm::vec3 velocity(camera->GetVelocity());
+    auto player = m_pSceneRoot->FindNode("player");
+    glm::vec3 velocity(player->GetVelocity());
 
     if (IsKeyDown(KEY_LEFT))
     {
@@ -125,6 +126,10 @@ void MazeMayhem::OnUpdate(float frametime)
     {
         velocity.z += frametime * 10.0f;
     }
+    if (IsKeyDown(KEY_SPACE))
+    {
+        // TODO: Jump
+    }
 
     float len = glm::length(velocity);
     if (len)
@@ -133,7 +138,7 @@ void MazeMayhem::OnUpdate(float frametime)
         velocity = glm::normalize(velocity) * len;
     }
 
-    camera->SetVelocity(velocity);
+    player->SetVelocity(velocity);
 
 }
 
@@ -153,9 +158,9 @@ void MazeMayhem::OnDraw(IRenderer& renderer)
     renderer.SetTexture(m_uProgram, m_uTexture, 0, "texture01");
 
     // Setup the camera matrices before rendering so there is no problems with SceneGraph
-    const auto* camera = static_cast<CameraNode*>(m_pSceneRoot->FindNode("camera"));
-    renderer.SetViewMatrix(camera->GetViewMatrix());
-    renderer.SetProjectionMatrix(camera->GetProjectionMatrix());
+    const auto* player = static_cast<CameraNode*>(m_pSceneRoot->FindNode("player"));
+    renderer.SetViewMatrix(player->GetViewMatrix());
+    renderer.SetProjectionMatrix(player->GetProjectionMatrix());
 
     if (m_pSceneRoot)
     {

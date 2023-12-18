@@ -4,7 +4,7 @@
 #include "../../core-engine/core/include/Geometry.h"
 #include "../../core-engine/core/include/Material.h"
 #include "../../core-engine/core/include/GeometryNode.h"
-#include "../../core-engine/core/include/CameraNode.h"
+#include "PlayerNode.h"
 
 // Bullet Physics Engine
 #include "Physics.h"
