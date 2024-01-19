@@ -11,6 +11,12 @@ public:
         FALLING
     };
 
+    /*
+     * Update player node and its children
+     * @param frametime frame delta time
+     */
+    void Update(float frametime) override;
+
     /**
      * Set current state of the player object.
      * @param state the state to be set for the player object

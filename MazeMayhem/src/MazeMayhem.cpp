@@ -129,6 +129,7 @@ void MazeMayhem::OnUpdate(float frametime)
     if (IsKeyDown(KEY_SPACE))
     {
         // TODO: Jump
+        velocity.y += frametime * 10.0f;
     }
 
     float len = glm::length(velocity);
